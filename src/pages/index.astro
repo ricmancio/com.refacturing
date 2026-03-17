@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Riccardo Mancinelli — Freelance Software Engineer & Consultant">
+  <Navbar />
+  <main id="main-content">
+    <Hero />
+    <About />
+    <Projects />
+    <Experience />
+    <Contact />
+  </main>
+  <Footer />
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode" title="Toggle theme">
+    <span class="theme-icon-dark" aria-hidden="true">☀️</span>
+    <span class="theme-icon-light" aria-hidden="true">🌙</span>
+  </button>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script>
+    // Back to top
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn?.classList.toggle('visible', window.scrollY > 400);
+    });
+    btn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function setTheme(theme: string) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    // Load saved preference or default dark
+    const saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+
+    themeBtn?.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</Layout>

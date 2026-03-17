@@ -1,0 +1,40 @@
+---
+const links = [
+  { href: '#about', label: 'about' },
+  { href: '#projects', label: 'side projects' },
+  { href: '#experience', label: 'experience' },
+  { href: '#contact', label: 'contact' },
+];
+---
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="navbar" aria-label="Main navigation">
+  <div class="container">
+    <a href="#" class="navbar-logo" aria-label="Refacturing.com — back to top">refacturing<span>.com</span></a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="menu-icon" aria-hidden="true">☰</span>
+    </button>
+    <ul class="nav-links" id="nav-menu" role="list">
+      {links.map(link => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav?.classList.toggle('active');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => {
+      nav?.classList.remove('active');
+      toggle?.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>

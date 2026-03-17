@@ -1,0 +1,48 @@
+---
+const skills = [
+  'JavaScript', 'TypeScript', 'Vue.js', 'React',
+  'Svelte', 'Angular', 'Node.js', 'NestJS',
+  'Scala', 'Python', 'Django', 'PostgreSQL',
+  'MongoDB', 'Docker', 'Git / CI-CD', 'Agile / Scrum',
+  'Cypress', 'Playwright', 'AI-SDK', 'n8n',
+];
+---
+
+<section id="about" class="section" aria-labelledby="about-title">
+  <div class="container">
+    <h2 class="section-title" id="about-title">About Me</h2>
+    <p class="section-subtitle">Fullstack developer, CTO, and startup consultant based in Italy.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I have extensive experience in software development, with a background
+          spanning consulting, development, training, and software architecture design.
+          My core strength is as a <strong>Fullstack Developer</strong>, proficient in
+          JavaScript/TypeScript frameworks and DevOps practices.
+        </p>
+        <p>
+          In recent years, I've supported startups in my role as <strong>CTO</strong>,
+          helping them successfully launch and grow their businesses. I've designed and
+          shipped multiple SaaS applications, backends, and mobile apps.
+        </p>
+        <p>
+          I work fully remotely in an asynchronous environment, and I have hands-on
+          experience with <strong>AI adoption</strong> using tools like n8n and AI-SDK.
+        </p>
+        <p>
+          I hold a <strong>Degree in Electronic Engineering</strong> from UNIVPM (Ancona, Italy)
+          and I'm a registered freelance consultant (P.IVA) ready to help you build
+          robust, user-friendly software aligned with your business goals.
+        </p>
+      </div>
+      <div>
+        <h3 id="tech-stack-title" style="font-family: var(--font-mono); font-size: 1rem; color: var(--accent); margin-bottom: 1rem;">tech_stack</h3>
+        <ul class="skills-grid" role="list" aria-labelledby="tech-stack-title">
+          {skills.map(skill => (
+            <li class="skill-tag">{skill}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

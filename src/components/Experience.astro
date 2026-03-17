@@ -1,0 +1,100 @@
+---
+const experiences = [
+  {
+    period: '2021 — Present',
+    role: 'Freelance Software Engineer',
+    company: 'Freelance · Remote',
+    details: [
+      'Developed Vue.js application with TypeScript for over 10,000 active users',
+      'Implemented GraphQL APIs using Node.js and MongoDB for efficient data retrieval',
+      'Implemented 400+ test cases with Cypress e2e tests as QA Engineer',
+    ],
+  },
+  {
+    period: '2016 — 2024',
+    role: 'CEO/CTO & Software Developer',
+    company: 'REFACTURING LTD · London',
+    details: [
+      'Designed and developed SaaS applications for startups, delivering scalable solutions',
+      'Built BaaS (Backend as a Service) using Scala on AWS',
+      'Developed mobile apps and single-page web applications with JavaScript/TypeScript',
+      'Oversaw technical strategy and mentored team members',
+    ],
+  },
+  {
+    period: '2012 — 2015',
+    role: 'Java/Scala Senior Developer',
+    company: 'Milan',
+    details: [
+      'Developed enterprise applications using Java and Scala frameworks',
+      'Optimized and maintained existing systems for performance and reliability',
+    ],
+  },
+  {
+    period: '2012',
+    role: 'Senior Java Developer & Architect',
+    company: 'Milan',
+    details: [
+      'Developed Java-based applications for enterprise clients',
+      'Performed maintenance and optimization for high availability',
+    ],
+  },
+  {
+    period: '2006 — 2012',
+    role: 'Software Architect & Sysadmin',
+    company: 'Ancona',
+    details: [
+      'Led design and development of Java-based applications and system architecture',
+      'Managed server administration and deployment processes',
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: 'Degree in Electronic Engineering',
+    institution: 'UNIVPM',
+    location: 'Ancona, Italy',
+    year: '2015',
+  },
+  {
+    degree: 'Diploma in Electronics & Telecommunications',
+    institution: 'ITIS Vito Volterra',
+    location: 'Ancona, Italy',
+    year: '2001',
+  },
+];
+---
+
+<section id="experience" class="section" aria-labelledby="experience-title">
+  <div class="container">
+    <h2 class="section-title" id="experience-title">Experience</h2>
+    <p class="section-subtitle">15+ years building software across consulting, startups, and enterprise.</p>
+    <div class="timeline" role="list" aria-label="Work experience timeline">
+      {experiences.map(exp => (
+        <article class="timeline-item" role="listitem">
+          <time class="timeline-date">{exp.period}</time>
+          <h3 class="timeline-role">{exp.role}</h3>
+          <p class="timeline-company">{exp.company}</p>
+          <ul class="timeline-details" aria-label={`Responsibilities as ${exp.role}`}>
+            {exp.details.map(d => <li>{d}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-title" id="education-title">Education</h2>
+      <p class="section-subtitle">Academic background.</p>
+      <div class="education-grid" role="list" aria-labelledby="education-title">
+        {education.map(edu => (
+          <article class="education-card" role="listitem">
+            <h3>{edu.degree}</h3>
+            <p class="institution">{edu.institution}</p>
+            <p class="year">{edu.location} · <time>{edu.year}</time></p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

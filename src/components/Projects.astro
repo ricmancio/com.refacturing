@@ -1,0 +1,65 @@
+---
+const projects = [
+  {
+    type: 'SaaS',
+    name: 'SnippetForm',
+    url: 'https://snippetform.com',
+    description: 'A SaaS platform for building and managing embeddable form snippets. Fast, lightweight, and developer-friendly.',
+    tags: ['SaaS', 'JavaScript', 'Forms'],
+  },
+  {
+    type: 'SaaS',
+    name: 'Transcribe',
+    url: 'http://transcribe.refacturing.com/',
+    description: 'Speech-to-text transcription service for podcasts and audio files, powered by modern S2T technologies.',
+    tags: ['SaaS', 'AI', 'S2T'],
+  },
+  {
+    type: 'Open Source',
+    name: 'GitGift',
+    url: 'https://gitgift.net/',
+    description: 'A platform to discover and support open source projects. Making open source contributions more visible and rewarding.',
+    tags: ['Open Source', 'Community', 'Web'],
+  },
+  {
+    type: 'Podcast',
+    name: 'Strategia IT',
+    url: 'https://strategiait.info/',
+    description: 'An Italian podcast exploring the IT ecosystem — conversations on strategy, technology, and the business of software.',
+    tags: ['Podcast', 'Italian', 'IT Strategy'],
+  },
+  {
+    type: 'Newsletter',
+    name: 'Refacturing Substack',
+    url: 'https://refacturing.substack.com/',
+    description: 'Insights and reflections on software engineering, freelancing, SaaS building, and the startup ecosystem.',
+    tags: ['Writing', 'Newsletter', 'Substack'],
+  },
+  {
+    type: 'YouTube',
+    name: 'Riccardo Mancinelli',
+    url: 'https://www.youtube.com/@riccardomancinelli',
+    description: 'Video content on software engineering, tech talks, and behind-the-scenes of building SaaS products and side projects.',
+    tags: ['YouTube', 'Video', 'Tech', 'Italian'],
+  },
+];
+---
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  <div class="container">
+    <h2 class="section-title" id="projects-title">Side Projects</h2>
+    <p class="section-subtitle">Things I build, write, and talk about outside of client work.</p>
+    <div class="projects-grid" role="list">
+      {projects.map(project => (
+        <article class="project-card" role="listitem">
+          <div class="project-type">{project.type}</div>
+          <h3><a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} — opens in new tab`}>{project.name} <span aria-hidden="true">↗</span></a></h3>
+          <p>{project.description}</p>
+          <ul class="project-tags" aria-label={`Technologies used in ${project.name}`}>
+            {project.tags.map(tag => <li>{tag}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
