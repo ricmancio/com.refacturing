@@ -54,14 +54,12 @@ const education = [
   {
     degree: 'Degree in Electronic Engineering',
     institution: 'UNIVPM',
-    location: 'Ancona, Italy',
-    year: '2015',
+    location: 'Ancona, Italy'
   },
   {
     degree: 'Diploma in Electronics & Telecommunications',
     institution: 'ITIS Vito Volterra',
-    location: 'Ancona, Italy',
-    year: '2001',
+    location: 'Ancona, Italy'    
   },
 ];
 ---
@@ -91,7 +89,7 @@ const education = [
           <article class="education-card" role="listitem">
             <h3>{edu.degree}</h3>
             <p class="institution">{edu.institution}</p>
-            <p class="year">{edu.location} · <time>{edu.year}</time></p>
+            <p class="year">{edu.location}</p>        
           </article>
         ))}
       </div>
